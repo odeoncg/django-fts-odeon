@@ -30,8 +30,12 @@ class FTSTestCase(unittest.TestCase):
         self.assertEqual(q4[1], b2)
         self.assertEqual(len(q4), 2)
 
-        q5 = Blog.search_objects.search('alien', rank_field='rank', highlight_field='body')
+        q5 = Blog.search_objects.search('alien', rank_field='rank', highlight_field='body', highlight_classname='')
         self.assertIn('<span>aliens</span>', q5[0].body_highlight)
-        #for b in q5:
-            #pprint(b.__dict__)
+        
+        q6 = Blog.search_objects.search('alien', rank_field='rank', highlight_field='body')
+        self.assertIn('<span class=\'fts_highlight\'>aliens</span>', q6[0].body_highlight)
+
+        q7 = Blog.search_objects.search('alien', rank_field='rank', highlight_field='body', highlight_classname='fts_test')
+        self.assertIn('<span class=\'fts_test\'>aliens</span>', q7[0].body_highlight)
 
