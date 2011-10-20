@@ -39,7 +39,7 @@ class SearchClass(BaseClass):
     def __init__(self, server, params):
         from django.conf import settings
 
-        if not (settings.DATABASE_ENGINE in ['postgresql', 'postgresql_psycopg2'] or settings.DATABASES['default']['ENGINE'].find('postgresql') != -1 or settings.DATABASES['default']['ENGINE'].find('postgis') != -1):
+        if not (settings.DATABASES['default']['ENGINE'].find('postgresql') != -1 or settings.DATABASES['default']['ENGINE'].find('postgis') != -1):
             raise InvalidFtsBackendError("PostgreSQL with tsearch2 support is needed to use the pgsql FTS backend")
 
         self.backend = 'pgsql'
