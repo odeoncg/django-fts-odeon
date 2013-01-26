@@ -4,6 +4,7 @@ The only supported back-end is PostgreSQL
 Dependencies:
 - Django
 - PostgreSQL
+- South ( http://south.aeracode.org/ )
 
 Install:
 - add "FTS_BACKEND = 'pgsql://' " in settings.py and "fts" to INSTALLED_APPS
