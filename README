@@ -8,7 +8,6 @@ Dependencies:
 
 Install:
 - add "FTS_BACKEND = 'pgsql://' " in settings.py and "fts" to INSTALLED_APPS
-- ./manage.py migrate fts
 
 Usage:
 - subclass your model from fts.SearchableModel
